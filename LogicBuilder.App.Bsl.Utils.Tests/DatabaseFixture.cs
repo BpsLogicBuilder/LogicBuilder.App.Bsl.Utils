@@ -7,7 +7,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 {
     public class DatabaseFixture : IAsyncLifetime
     {
-        private readonly MsSqlContainer _msSqlContainer = new MsSqlBuilder("mcr.microsoft.com/mssql/server@sha256:d975fb1ea4c25c95309d7813b9f9133cde880fda16da24ab1379e277a9b2395b")//2026-latest
+        private readonly MsSqlContainer _msSqlContainer = new MsSqlBuilder("mcr.microsoft.com/mssql/server:2025-latest")//2025-latest
                                 .Build();
 
         public string GetConnectionString(string initialCatalog)
