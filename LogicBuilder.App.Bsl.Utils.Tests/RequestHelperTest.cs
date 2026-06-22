@@ -758,8 +758,10 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             Assert.Equal("Selector is required.", exception.Message);
         }
 
-        [Fact]
-        public async Task GetAnonymousList_NonGeneric_With_Invalid_ModelType_Throws_InvalidOperationException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("InvalidType")]
+        public async Task GetAnonymousList_NonGeneric_With_Invalid_ModelType_Throws_InvalidOperationException(string? modelType)
         {
             //arrange
             var selectorLambdaOperatorDescriptor = GetExpressionDescriptor<IQueryable<DepartmentModel>, IEnumerable<dynamic>>
@@ -777,7 +779,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     new Business.Requests.GetObjectListRequest
                     {
                         Selector = selectorLambdaOperatorDescriptor,
-                        ModelType = "InvalidType",
+                        ModelType = modelType,
                         DataType = typeof(Department).AssemblyQualifiedName
                     }
                 )
@@ -787,8 +789,10 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             Assert.Contains("is invalid", exception.Message);
         }
 
-        [Fact]
-        public async Task GetAnonymousList_NonGeneric_With_Invalid_DataType_Throws_InvalidOperationException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("InvalidType")]
+        public async Task GetAnonymousList_NonGeneric_With_Invalid_DataType_Throws_InvalidOperationException(string? dataType)
         {
             //arrange
             var selectorLambdaOperatorDescriptor = GetExpressionDescriptor<IQueryable<DepartmentModel>, IEnumerable<dynamic>>
@@ -807,7 +811,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     {
                         Selector = selectorLambdaOperatorDescriptor,
                         ModelType = typeof(DepartmentModel).AssemblyQualifiedName,
-                        DataType = "InvalidType"
+                        DataType = dataType
                     }
                 )
             );
@@ -866,8 +870,10 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             Assert.Equal("Filter is required.", exception.Message);
         }
 
-        [Fact]
-        public async Task GetEntity_NonGeneric_With_Invalid_ModelType_Throws_InvalidOperationException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("InvalidType")]
+        public async Task GetEntity_NonGeneric_With_Invalid_ModelType_Throws_InvalidOperationException(string? modelType)
         {
             //arrange
             var filterLambdaOperatorDescriptor = GetFilterExpressionDescriptor<DepartmentModel>
@@ -885,7 +891,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     new Business.Requests.GetEntityRequest
                     {
                         Filter = filterLambdaOperatorDescriptor,
-                        ModelType = "InvalidType",
+                        ModelType = modelType,
                         DataType = typeof(Department).AssemblyQualifiedName
                     }
                 )
@@ -895,8 +901,10 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             Assert.Contains("is invalid", exception.Message);
         }
 
-        [Fact]
-        public async Task GetEntity_NonGeneric_With_Invalid_DataType_Throws_InvalidOperationException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("InvalidType")]
+        public async Task GetEntity_NonGeneric_With_Invalid_DataType_Throws_InvalidOperationException(string? dataType)
         {
             //arrange
             var filterLambdaOperatorDescriptor = GetFilterExpressionDescriptor<DepartmentModel>
@@ -915,7 +923,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     {
                         Filter = filterLambdaOperatorDescriptor,
                         ModelType = typeof(DepartmentModel).AssemblyQualifiedName,
-                        DataType = "InvalidType"
+                        DataType = dataType
                     }
                 )
             );
@@ -973,8 +981,10 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             Assert.Equal("Selector is required.", exception.Message);
         }
 
-        [Fact]
-        public async Task GetList_NonGeneric_With_Invalid_ModelType_Throws_InvalidOperationException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("InvalidType")]
+        public async Task GetList_NonGeneric_With_Invalid_ModelType_Throws_InvalidOperationException(string? modelType)
         {
             //arrange
             var selectorLambdaOperatorDescriptor = GetExpressionDescriptor<IQueryable<DepartmentModel>, IEnumerable<DepartmentModel>>
@@ -992,7 +1002,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     new Business.Requests.GetTypedListRequest
                     {
                         Selector = selectorLambdaOperatorDescriptor,
-                        ModelType = "InvalidType",
+                        ModelType = modelType,
                         DataType = typeof(Department).AssemblyQualifiedName,
                         ModelReturnType = typeof(IEnumerable<DepartmentModel>).AssemblyQualifiedName,
                         DataReturnType = typeof(IEnumerable<Department>).AssemblyQualifiedName
@@ -1004,8 +1014,10 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             Assert.Contains("is invalid", exception.Message);
         }
 
-        [Fact]
-        public async Task GetList_NonGeneric_With_Invalid_DataType_Throws_InvalidOperationException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("InvalidType")]
+        public async Task GetList_NonGeneric_With_Invalid_DataType_Throws_InvalidOperationException(string? dataType)
         {
             //arrange
             var selectorLambdaOperatorDescriptor = GetExpressionDescriptor<IQueryable<DepartmentModel>, IEnumerable<DepartmentModel>>
@@ -1024,7 +1036,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     {
                         Selector = selectorLambdaOperatorDescriptor,
                         ModelType = typeof(DepartmentModel).AssemblyQualifiedName,
-                        DataType = "InvalidType",
+                        DataType = dataType,
                         ModelReturnType = typeof(IEnumerable<DepartmentModel>).AssemblyQualifiedName,
                         DataReturnType = typeof(IEnumerable<Department>).AssemblyQualifiedName
                     }
@@ -1035,8 +1047,10 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             Assert.Contains("is invalid", exception.Message);
         }
 
-        [Fact]
-        public async Task GetList_NonGeneric_With_Invalid_ModelReturnType_Throws_InvalidOperationException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("InvalidType")]
+        public async Task GetList_NonGeneric_With_Invalid_ModelReturnType_Throws_InvalidOperationException(string? modelReturnType)
         {
             //arrange
             var selectorLambdaOperatorDescriptor = GetExpressionDescriptor<IQueryable<DepartmentModel>, IEnumerable<DepartmentModel>>
@@ -1056,7 +1070,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                         Selector = selectorLambdaOperatorDescriptor,
                         ModelType = typeof(DepartmentModel).AssemblyQualifiedName,
                         DataType = typeof(Department).AssemblyQualifiedName,
-                        ModelReturnType = "InvalidType",
+                        ModelReturnType = modelReturnType,
                         DataReturnType = typeof(IEnumerable<Department>).AssemblyQualifiedName
                     }
                 )
@@ -1066,8 +1080,10 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             Assert.Contains("is invalid", exception.Message);
         }
 
-        [Fact]
-        public async Task GetList_NonGeneric_With_Invalid_DataReturnType_Throws_InvalidOperationException()
+        [Theory]
+        [InlineData(null)]
+        [InlineData("InvalidType")]
+        public async Task GetList_NonGeneric_With_Invalid_DataReturnType_Throws_InvalidOperationException(string? dataReturnType)
         {
             //arrange
             var selectorLambdaOperatorDescriptor = GetExpressionDescriptor<IQueryable<DepartmentModel>, IEnumerable<DepartmentModel>>
@@ -1088,7 +1104,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                         ModelType = typeof(DepartmentModel).AssemblyQualifiedName,
                         DataType = typeof(Department).AssemblyQualifiedName,
                         ModelReturnType = typeof(IEnumerable<DepartmentModel>).AssemblyQualifiedName,
-                        DataReturnType = "InvalidType"
+                        DataReturnType = dataReturnType
                     }
                 )
             );

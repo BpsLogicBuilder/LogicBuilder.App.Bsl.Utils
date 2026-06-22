@@ -27,9 +27,9 @@ namespace LogicBuilder.App.Bsl.Utils
             (
                 Type.GetType(request.ModelType ?? "") ?? throw new InvalidOperationException($"Model type {request.ModelType} is invalid. Provide a valid asembly qualified type name."),
                 Type.GetType(request.DataType ?? "") ?? throw new InvalidOperationException($"Data type {request.DataType} is invalid. Provide a valid asembly qualified type name.")
-            ) ?? throw new InvalidOperationException($"{nameof(GetAnonymousList)} method not found");
+            );
 
-            return await (Task<GetObjectListResponse>)(methodInfo.Invoke(this, [request]) ?? throw new InvalidOperationException($"{nameof(GetAnonymousList)} method invoke failed."));
+            return await (Task<GetObjectListResponse>)(methodInfo.Invoke(this, [request])!);//Generic GetAnonymousList never returns null
         }
 
         public async Task<GetObjectListResponse> GetAnonymousList<TModel, TData>(GetObjectListRequest request)
@@ -50,9 +50,9 @@ namespace LogicBuilder.App.Bsl.Utils
             (
                 Type.GetType(request.ModelType ?? "") ?? throw new InvalidOperationException($"Model type {request.ModelType} is invalid. Provide a valid asembly qualified type name."),
                 Type.GetType(request.DataType ?? "") ?? throw new InvalidOperationException($"Data type {request.DataType} is invalid. Provide a valid asembly qualified type name.")
-            ) ?? throw new InvalidOperationException($"{nameof(GetEntity)} method not found");
+            );
 
-            return await (Task<GetEntityResponse>)(methodInfo.Invoke(this, [request]) ?? throw new InvalidOperationException($"{nameof(GetEntity)} method invoke failed."));
+            return await (Task<GetEntityResponse>)(methodInfo.Invoke(this, [request])!);//Generic GetEntity never returns null
         }
 
         public async Task<GetEntityResponse> GetEntity<TModel, TData>(GetEntityRequest request)
@@ -76,9 +76,9 @@ namespace LogicBuilder.App.Bsl.Utils
                 Type.GetType(request.DataType ?? "") ?? throw new InvalidOperationException($"Data type {request.DataType} is invalid. Provide a valid asembly qualified type name."),
                 Type.GetType(request.ModelReturnType ?? "") ?? throw new InvalidOperationException($"Model return type {request.ModelReturnType} is invalid. Provide a valid asembly qualified type name."),
                 Type.GetType(request.DataReturnType ?? "") ?? throw new InvalidOperationException($"Data return type {request.DataReturnType} is invalid. Provide a valid asembly qualified type name.")
-            ) ?? throw new InvalidOperationException($"{nameof(GetList)} method not found");
+            );
 
-            return await (Task<GetListResponse>)(methodInfo.Invoke(this, [request]) ?? throw new InvalidOperationException($"{nameof(GetList)} method invoke failed."));
+            return await (Task<GetListResponse>)(methodInfo.Invoke(this, [request])!);//Generic GetList never returns null
         }
 
 #pragma warning disable S2436
