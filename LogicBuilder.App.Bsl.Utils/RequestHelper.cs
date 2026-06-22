@@ -29,7 +29,7 @@ namespace LogicBuilder.App.Bsl.Utils
                 Type.GetType(request.DataType ?? "") ?? throw new InvalidOperationException($"Data type {request.DataType} is invalid. Provide a valid asembly qualified type name.")
             ) ?? throw new InvalidOperationException($"{nameof(GetAnonymousList)} method not found");
 
-            return await (Task<GetObjectListResponse>)(methodInfo.Invoke(null, [request]) ?? throw new InvalidOperationException($"{nameof(GetAnonymousList)} method invoke failed."));
+            return await (Task<GetObjectListResponse>)(methodInfo.Invoke(this, [request]) ?? throw new InvalidOperationException($"{nameof(GetAnonymousList)} method invoke failed."));
         }
 
         public async Task<GetObjectListResponse> GetAnonymousList<TModel, TData>(GetObjectListRequest request)
@@ -52,7 +52,7 @@ namespace LogicBuilder.App.Bsl.Utils
                 Type.GetType(request.DataType ?? "") ?? throw new InvalidOperationException($"Data type {request.DataType} is invalid. Provide a valid asembly qualified type name.")
             ) ?? throw new InvalidOperationException($"{nameof(GetEntity)} method not found");
 
-            return await (Task<GetEntityResponse>)(methodInfo.Invoke(null, [request]) ?? throw new InvalidOperationException($"{nameof(GetEntity)} method invoke failed."));
+            return await (Task<GetEntityResponse>)(methodInfo.Invoke(this, [request]) ?? throw new InvalidOperationException($"{nameof(GetEntity)} method invoke failed."));
         }
 
         public async Task<GetEntityResponse> GetEntity<TModel, TData>(GetEntityRequest request)
@@ -78,7 +78,7 @@ namespace LogicBuilder.App.Bsl.Utils
                 Type.GetType(request.DataReturnType ?? "") ?? throw new InvalidOperationException($"Data return type {request.DataReturnType} is invalid. Provide a valid asembly qualified type name.")
             ) ?? throw new InvalidOperationException($"{nameof(GetList)} method not found");
 
-            return await (Task<GetListResponse>)(methodInfo.Invoke(null, [request]) ?? throw new InvalidOperationException($"{nameof(GetList)} method invoke failed."));
+            return await (Task<GetListResponse>)(methodInfo.Invoke(this, [request]) ?? throw new InvalidOperationException($"{nameof(GetList)} method invoke failed."));
         }
 
 #pragma warning disable S2436
