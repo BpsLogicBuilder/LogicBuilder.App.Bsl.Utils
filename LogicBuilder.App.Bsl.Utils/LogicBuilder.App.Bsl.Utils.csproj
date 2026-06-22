@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LogicBuilder.App.Bsl.Business" Version="1.0.1" />
+    <PackageReference Include="LogicBuilder.App.Common.Utils" Version="1.0.1" />
+    <PackageReference Include="LogicBuilder.EntityFrameworkCore" Version="8.0.2" />
+  </ItemGroup>
+
+</Project>
