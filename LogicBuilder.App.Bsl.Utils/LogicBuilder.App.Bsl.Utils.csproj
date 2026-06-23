@@ -16,7 +16,7 @@
 		<PackageReleaseNotes>First release.</PackageReleaseNotes>
 		<PackageTags>linq expressions</PackageTags>
 		<Copyright>Copyright © BPS 2026</Copyright>
-		<RepositoryUrl>https://github.com/BpsLogicBuilder/LogicBuilder.App.Common.Utils</RepositoryUrl>
+		<RepositoryUrl>https://github.com/BpsLogicBuilder/LogicBuilder.App.Bsl.Utils</RepositoryUrl>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://github.com/BpsLogicBuilder/LogicBuilder</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>

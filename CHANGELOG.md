@@ -1,3 +1,4 @@
+* 2026-06-22 - AB#155: Updating the repository URL.
 * 2026-06-22 - AB#152: MinVer for version management.
 * 2026-06-22 - AB#152: Improve code coverage to pass quality gate.
 * 2026-06-22 - AB#152: Using docker image tag over immutable digest (not found).
