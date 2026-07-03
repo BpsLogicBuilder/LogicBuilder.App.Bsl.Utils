@@ -6,7 +6,9 @@ namespace LogicBuilder.App.Bsl.Utils.Tests.AutoMapperProfiles
 {
     public class SchoolProfile : Profile
     {
+#pragma warning disable S3776//ternary operation needed for EF provider
         public SchoolProfile()
+#pragma warning restore S3776
         {
             CreateMap<CourseAssignmentModel, CourseAssignment>()
                 .ForMember(dest => dest.Instructor, opts => opts.Ignore())
@@ -53,11 +55,20 @@ namespace LogicBuilder.App.Bsl.Utils.Tests.AutoMapperProfiles
                 .ReverseMap()
                 .ForMember(dest => dest.CourseTitle, opts => opts.MapFrom(x => x.Course!.Title))
                 .ForMember(dest => dest.StudentName, opts => opts.MapFrom(x => x.Student!.FirstName + " " + x.Student.LastName))
-                .ForMember(dest => dest.Grade, opts => opts.MapFrom(x => x.Grade.HasValue ? (Data.Grade?)(int)x.Grade.Value : null))
+                .ForMember(dest => dest.Grade, opts => opts.MapFrom(x => x.Grade.HasValue ? (Models.Grade?)(int)x.Grade.Value : null))
                 .ForMember
                 (
                     dest => dest.GradeLetter,
-                    opts => opts.MapFrom(x => x.Grade.ToString())
+                    opts => opts.MapFrom
+                    (
+#pragma warning disable S3358//needed for EF provider translation
+                        x => x.Grade == Data.Grade.A ? "A"
+                            : x.Grade == Data.Grade.B ? "B"
+                            : x.Grade == Data.Grade.C ? "C"
+                            : x.Grade == Data.Grade.D ? "D"
+                            : x.Grade == Data.Grade.F ? "F" : ""
+#pragma warning restore S3358
+                    )
                 )
                 .ForAllMembers(o => o.ExplicitExpansion());
 
