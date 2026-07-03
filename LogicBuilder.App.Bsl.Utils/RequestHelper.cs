@@ -89,11 +89,11 @@ namespace LogicBuilder.App.Bsl.Utils
         {
             return new GetListResponse
             {
-                List = ((IEnumerable<BaseModel>?)await Query<TModel, TData, TModelReturn, TDataReturn>
+                List = (IEnumerable<BaseModel>)(await Query<TModel, TData, TModelReturn, TDataReturn>
                 (
                     _mappingOperations.MapToOperator(request.Selector ?? throw new InvalidOperationException($"Selector is required.")),
                     request.SelectExpandDefinition == null ? null : _mappingOperations.MapExpansion(request.SelectExpandDefinition)
-                )) ?? [],
+                ))!,//List query does not return null
                 Success = true
             };
         }

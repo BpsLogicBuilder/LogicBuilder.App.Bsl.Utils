@@ -13,7 +13,7 @@
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<Description>This library handles query requests which includes data defined filters, expansions with specified entity and model types.  Related components dynamically generate and execute the queries.</Description>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-		<PackageReleaseNotes>First release.</PackageReleaseNotes>
+		<PackageReleaseNotes>Moving classes from BSL.Flow to this library for reusability.</PackageReleaseNotes>
 		<PackageTags>linq expressions</PackageTags>
 		<Copyright>Copyright © BPS 2026</Copyright>
 		<RepositoryUrl>https://github.com/BpsLogicBuilder/LogicBuilder.App.Bsl.Utils</RepositoryUrl>
@@ -36,9 +36,9 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="LogicBuilder.App.Bsl.Business" Version="1.0.1" />
-    <PackageReference Include="LogicBuilder.App.Common.Utils" Version="1.0.1" />
-    <PackageReference Include="LogicBuilder.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="LogicBuilder.App.Bsl.Business" Version="1.0.2" />
+    <PackageReference Include="LogicBuilder.App.Common.Utils" Version="1.0.2" />
+    <PackageReference Include="LogicBuilder.EntityFrameworkCore" Version="8.0.3" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.300" PrivateAssets="All" />
 		<PackageReference Include="MinVer" Version="7.0.0">
 			<PrivateAssets>all</PrivateAssets>

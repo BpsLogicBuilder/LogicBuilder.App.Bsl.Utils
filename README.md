@@ -16,6 +16,8 @@ A .NET library that provides utilities for handling query requests with dynamic 
 - **Anonymous Type Support**: Query and return dynamic/anonymous types for flexible data transfer objects
 - **Entity Retrieval**: Retrieve single entities with filtering and expansion capabilities
 - **List Queries**: Execute queries that return collections with flexible return types (IEnumerable, IQueryable, etc.)
+- **Delete Operations**: Execute delete operations using dynamic filter expressions
+- **Persistence Operations**: Synchronous wrappers for common Entity Framework Core CRUD operations
 - **Entity Framework Core**: Built on top of Entity Framework Core for robust data access
 
 ## Core Components
@@ -29,6 +31,50 @@ The main interface providing three primary operations:
 - **GetAnonymousList**: Retrieve a list of dynamic objects for anonymous type projections
 
 Each method supports both generic and non-generic overloads for maximum flexibility.
+
+### Operation Interfaces
+
+#### IDeleteOperations
+Provides delete operations using parameter-based filter expressions:
+- **Delete<TModel, TData>**: Delete entities matching a FilterLambdaOperatorParameters expression
+
+#### IProjectionOperations
+Provides entity retrieval with filtering, querying, and expansion support:
+- **Get<TModel, TData>**: Retrieve a single entity with optional filtering, query functions, and expansion
+- **GetItems<TModel, TData>**: Retrieve a collection of entities with optional filtering, query functions, and expansion
+
+#### IQueryOperations
+Provides advanced query operations with flexible return types:
+- **Query<TModel, TData, TModelReturn, TDataReturn>**: Execute custom LINQ queries with mapping between model and data types
+
+### Static Operation Classes
+
+#### PersistenceOperations<TModel, TData>
+Provides synchronous wrappers for Entity Framework Core persistence operations:
+- **AddChange**: Add or update a single entity
+- **AddChanges**: Add or update multiple entities
+- **AddGraphChange**: Add or update an entity graph (with related entities)
+- **AddGraphChanges**: Add or update multiple entity graphs
+- **Delete**: Delete entities matching a filter expression
+- **Save**: Save a single entity
+- **SaveList**: Save multiple entities
+- **SaveGraph**: Save an entity graph
+- **SaveGraphs**: Save multiple entity graphs
+
+#### DeleteOperations<TModel, TData>
+Static wrapper for delete operations:
+- **Delete**: Execute delete operations using FilterLambdaOperatorParameters
+
+#### ProjectionOperations<TModel, TData>
+Static wrappers for projection operations:
+- **Get** (GetSingle): Retrieve a single entity synchronously
+- **GetItems** (GetList): Retrieve a collection of entities synchronously
+
+#### QueryOperations<TModel, TData, TModelReturn, TDataReturn>
+Static wrapper for query operations:
+- **Query**: Execute custom queries with flexible return types synchronously
+
+All static operation classes use the `[AlsoKnownAs]` and `[FunctionGroup]` attributes for integration with the LogicBuilder framework, enabling these methods to be called from business rules and workflows.
 
 ### Request Types
 
@@ -49,12 +95,16 @@ Each method supports both generic and non-generic overloads for maximum flexibil
 - Creating data access layers that support runtime type resolution
 - Developing business logic layers that require expression-based filtering and projection
 - Building applications that need to query data using externally-defined expression descriptors
+- Executing persistence operations (CRUD) with type-safe generic methods
+- Integrating data operations with rule-based business logic systems
+- Performing complex entity graph operations (saving entities with related data)
 
 ## Dependencies
 
 - **LogicBuilder.App.Bsl.Business**: Business layer components for requests and responses
 - **LogicBuilder.App.Common.Utils**: Common utilities for mapping operations
 - **LogicBuilder.EntityFrameworkCore**: EF Core extensions and repository patterns
+- **LogicBuilder.Attributes**: Attributes for function metadata and framework integration
 - **.NET 10.0**: Built for the latest .NET platform
 
 ## Example Scenarios
@@ -66,6 +116,9 @@ The library handles complex scenarios such as:
 - Ordering, filtering, and limiting results dynamically
 - Grouping data with aggregations (e.g., group students by enrollment date with counts)
 - Type-safe mapping between entity types and model types using expression descriptors
+- Deleting entities based on dynamic filter expressions
+- Saving entity graphs with related entities in a single operation
+- Executing synchronous CRUD operations from business rules
 
 ## Target Framework
 
