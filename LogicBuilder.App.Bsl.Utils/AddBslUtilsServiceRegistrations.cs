@@ -5,9 +5,9 @@ using LogicBuilder.App.Bsl.Utils.Interfaces;
 namespace Microsoft.Extensions.DependencyInjection
 #pragma warning restore IDE0130
 {
-    public static class ServiceRegistrations
+    public static class AddBslUtilsServiceRegistrations
     {
-        public static IServiceCollection AddBslUtilservices(this IServiceCollection services)
+        public static IServiceCollection AddBslUtilsServices(this IServiceCollection services)
         {
             return services
                 .AddTransient<IDeleteOperations, DeleteOperations>()

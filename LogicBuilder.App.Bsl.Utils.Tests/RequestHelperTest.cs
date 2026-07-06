@@ -1186,7 +1186,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     ),
                     ServiceLifetime.Transient
                 )
-                .AddTransient<IMappingOperations, MappingOperations>()
+                .AddAppCommonUtilsServices()
                 .AddTransient<IRequestHelper, RequestHelper>()
                 .AddTransient<ISchoolStore, SchoolStore>()
                 .AddTransient<IContextRepository, SchoolRepository>()

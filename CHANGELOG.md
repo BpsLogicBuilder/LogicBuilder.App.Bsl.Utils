@@ -1,3 +1,4 @@
+* 2026-07-06 - AB#173: Fixing a typo in the service registration method name.
 * 2026-07-03 - AB#173: Updating the README.md to cover the new classes.
 * 2026-07-03 - AB#173: Moving classes from BSL.Flow to this library for reusability.
 * 2026-06-22 - AB#155: Updating the repository URL.

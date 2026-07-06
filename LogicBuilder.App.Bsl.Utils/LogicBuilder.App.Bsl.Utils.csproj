@@ -37,7 +37,7 @@
 
   <ItemGroup>
     <PackageReference Include="LogicBuilder.App.Bsl.Business" Version="1.0.2" />
-    <PackageReference Include="LogicBuilder.App.Common.Utils" Version="1.0.2" />
+    <PackageReference Include="LogicBuilder.App.Common.Utils" Version="1.0.3" />
     <PackageReference Include="LogicBuilder.EntityFrameworkCore" Version="8.0.3" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.300" PrivateAssets="All" />
 		<PackageReference Include="MinVer" Version="7.0.0">
