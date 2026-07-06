@@ -313,8 +313,8 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     ),
                     ServiceLifetime.Transient
                 )
-                .AddTransient<IMappingOperations, MappingOperations>()
-                .AddBslUtilservices()
+                .AddAppCommonUtilsServices()
+                .AddBslUtilsServices()
                 .AddTransient<ISchoolStore, SchoolStore>()
                 .AddTransient<IContextRepository, SchoolRepository>()
                 .AddTransient<ISchoolRepository, SchoolRepository>()
