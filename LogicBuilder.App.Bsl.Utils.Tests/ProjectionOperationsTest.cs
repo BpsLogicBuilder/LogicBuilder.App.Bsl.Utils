@@ -6,8 +6,6 @@ using LogicBuilder.App.Bsl.Utils.Tests.Data;
 using LogicBuilder.App.Bsl.Utils.Tests.Data.Stores;
 using LogicBuilder.App.Bsl.Utils.Tests.Models;
 using LogicBuilder.App.Bsl.Utils.Tests.Models.Repositories;
-using LogicBuilder.App.Common.Utils;
-using LogicBuilder.App.Common.Utils.Interfaces;
 using LogicBuilder.EntityFrameworkCore.Mapping;
 using LogicBuilder.EntityFrameworkCore.Repositories;
 using LogicBuilder.Expressions.Utils.Strutures;
@@ -45,7 +43,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [Fact]
         public void Get_students_with_filter_with_expansion()
         {
-            ICollection<StudentModel> students = ProjectionOperations<StudentModel, Student>.GetItems
+            ICollection<StudentModel> students = ProjectionOperationUtils<StudentModel, Student>.GetItems
             (
                 serviceProvider!.GetRequiredService<IProjectionOperations>(),
                 new FilterLambdaOperatorParameters
@@ -77,7 +75,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [Fact]
         public void Get_students_with_filter_and_no_expansion()
         {
-            ICollection<StudentModel> students = ProjectionOperations<StudentModel, Student>.GetItems
+            ICollection<StudentModel> students = ProjectionOperationUtils<StudentModel, Student>.GetItems
             (
                 serviceProvider!.GetRequiredService<IProjectionOperations>(),
                 new FilterLambdaOperatorParameters
@@ -101,7 +99,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [Fact]
         public void Get_students_no_filter_and_no_expansion()
         {
-            ICollection<StudentModel> students = ProjectionOperations<StudentModel, Student>.GetItems
+            ICollection<StudentModel> students = ProjectionOperationUtils<StudentModel, Student>.GetItems
             (
                 serviceProvider!.GetRequiredService<IProjectionOperations>()
             );
@@ -113,7 +111,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [Fact]
         public void Get_students_sorted_with_filter_and_no_expansion()
         {
-            ICollection<StudentModel> students = ProjectionOperations<StudentModel, Student>.GetItems
+            ICollection<StudentModel> students = ProjectionOperationUtils<StudentModel, Student>.GetItems
             (
                 serviceProvider!.GetRequiredService<IProjectionOperations>(),
                 new FilterLambdaOperatorParameters
@@ -154,7 +152,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [Fact]
         public void Get_students_with_filter_and_filtered_expansion()
         {
-            ICollection<StudentModel> students = ProjectionOperations<StudentModel, Student>.GetItems
+            ICollection<StudentModel> students = ProjectionOperationUtils<StudentModel, Student>.GetItems
             (
                 serviceProvider!.GetRequiredService<IProjectionOperations>(),
                 new FilterLambdaOperatorParameters
@@ -202,7 +200,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [Fact]
         public void Get_students_with_filter_and_sorted_expansion()
         {
-            ICollection<StudentModel> students = ProjectionOperations<StudentModel, Student>.GetItems
+            ICollection<StudentModel> students = ProjectionOperationUtils<StudentModel, Student>.GetItems
             (
                 serviceProvider!.GetRequiredService<IProjectionOperations>(),
                 new FilterLambdaOperatorParameters
@@ -271,7 +269,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [Fact]
         public void Get_single_student_filtered_expansion_with_sort_skip_and_take()
         {
-            StudentModel? student = ProjectionOperations<StudentModel, Student>.Get
+            StudentModel? student = ProjectionOperationUtils<StudentModel, Student>.Get
             (
                 serviceProvider!.GetRequiredService<IProjectionOperations>(),
                 new FilterLambdaOperatorParameters
@@ -339,7 +337,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [Fact]
         public void Get_enrollments_filtered_by_grade_letter()
         {
-            ICollection<EnrollmentModel> enrollments = ProjectionOperations<EnrollmentModel, Enrollment>.GetItems
+            ICollection<EnrollmentModel> enrollments = ProjectionOperationUtils<EnrollmentModel, Enrollment>.GetItems
             (
                 serviceProvider!.GetRequiredService<IProjectionOperations>(),
                 new FilterLambdaOperatorParameters
@@ -387,7 +385,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     ),
                     ServiceLifetime.Transient
                 )
-                .AddAppCommonUtilsServices()
+                .AddAppUtilsServices()
                 .AddBslUtilsServices()
                 .AddTransient<ISchoolStore, SchoolStore>()
                 .AddTransient<IContextRepository, SchoolRepository>()

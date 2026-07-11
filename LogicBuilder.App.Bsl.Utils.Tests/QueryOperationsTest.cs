@@ -6,8 +6,7 @@ using LogicBuilder.App.Bsl.Utils.Tests.Data;
 using LogicBuilder.App.Bsl.Utils.Tests.Data.Stores;
 using LogicBuilder.App.Bsl.Utils.Tests.Models;
 using LogicBuilder.App.Bsl.Utils.Tests.Models.Repositories;
-using LogicBuilder.App.Common.Utils;
-using LogicBuilder.App.Common.Utils.Interfaces;
+using LogicBuilder.App.Utils.Interfaces;
 using LogicBuilder.EntityFrameworkCore.Mapping;
 using LogicBuilder.EntityFrameworkCore.Repositories;
 using LogicBuilder.Expressions.Utils.ExpressionBuilder;
@@ -85,7 +84,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<CourseModel>, IQueryable<CourseAssignmentModel>>(bodyParameter, "q");
-            IQueryable<CourseAssignmentModel> returnValue = QueryOperations<CourseModel, Course, IQueryable<CourseAssignmentModel>, IQueryable<CourseAssignment>>.Query
+            IQueryable<CourseAssignmentModel> returnValue = QueryOperationUtils<CourseModel, Course, IQueryable<CourseAssignmentModel>, IQueryable<CourseAssignment>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -125,7 +124,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<InstructorModel>, IQueryable<string>>(bodyParameter, "q");
-            IQueryable<string> returnValue = QueryOperations<InstructorModel, Instructor, IQueryable<string>, IQueryable<string>>.Query
+            IQueryable<string> returnValue = QueryOperationUtils<InstructorModel, Instructor, IQueryable<string>, IQueryable<string>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -174,7 +173,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<InstructorModel>, IQueryable<InstructorModel>>(bodyParameter, "q");
-            IQueryable<InstructorModel> returnValue = QueryOperations<InstructorModel, Instructor, IQueryable<InstructorModel>, IQueryable<Instructor>>.Query
+            IQueryable<InstructorModel> returnValue = QueryOperationUtils<InstructorModel, Instructor, IQueryable<InstructorModel>, IQueryable<Instructor>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -220,7 +219,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<InstructorModel>, IQueryable<InstructorModel>>(bodyParameter, "q");
-            IQueryable<InstructorModel> returnValue = QueryOperations<InstructorModel, Instructor, IQueryable<InstructorModel>, IQueryable<Instructor>>.Query
+            IQueryable<InstructorModel> returnValue = QueryOperationUtils<InstructorModel, Instructor, IQueryable<InstructorModel>, IQueryable<Instructor>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -266,7 +265,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<InstructorModel>, IQueryable<InstructorModel>>(bodyParameter, "q");
-            IQueryable<InstructorModel> returnValue = QueryOperations<InstructorModel, Instructor, IQueryable<InstructorModel>, IQueryable<Instructor>>.Query
+            IQueryable<InstructorModel> returnValue = QueryOperationUtils<InstructorModel, Instructor, IQueryable<InstructorModel>, IQueryable<Instructor>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -311,7 +310,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<InstructorModel>, IQueryable<dynamic>>(bodyParameter, "q");
-            IQueryable<dynamic> returnValue = QueryOperations<InstructorModel, Instructor, IQueryable<dynamic>, IQueryable<dynamic>>.Query
+            IQueryable<dynamic> returnValue = QueryOperationUtils<InstructorModel, Instructor, IQueryable<dynamic>, IQueryable<dynamic>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -381,7 +380,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<StudentModel>, double>(bodyParameter, "q");
-            double returnValue = QueryOperations<StudentModel, Student, double, double>.Query
+            double returnValue = QueryOperationUtils<StudentModel, Student, double, double>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -453,7 +452,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, IQueryable<dynamic>>(bodyParameter, "q");
-            IQueryable<dynamic> returnValue = QueryOperations<DepartmentModel, Department, IQueryable<dynamic>, IQueryable<dynamic>>.Query
+            IQueryable<dynamic> returnValue = QueryOperationUtils<DepartmentModel, Department, IQueryable<dynamic>, IQueryable<dynamic>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -597,7 +596,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, dynamic>(bodyParameter, "q");
-            dynamic returnValue = QueryOperations<DepartmentModel, Department, dynamic, object>.Query
+            dynamic returnValue = QueryOperationUtils<DepartmentModel, Department, dynamic, object>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -643,7 +642,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, bool>(bodyParameter, "$it");
-            dynamic returnValue = QueryOperations<DepartmentModel, Department, bool, bool>.Query
+            dynamic returnValue = QueryOperationUtils<DepartmentModel, Department, bool, bool>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -677,7 +676,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, bool>(bodyParameter, "$it");
-            dynamic returnValue = QueryOperations<DepartmentModel, Department, bool, bool>.Query
+            dynamic returnValue = QueryOperationUtils<DepartmentModel, Department, bool, bool>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -705,7 +704,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, bool>(bodyParameter, "$it");
-            dynamic returnValue = QueryOperations<DepartmentModel, Department, bool, bool>.Query
+            dynamic returnValue = QueryOperationUtils<DepartmentModel, Department, bool, bool>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -733,7 +732,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, IQueryable<DepartmentModel>>(bodyParameter, "$it");
-            IQueryable<DepartmentModel> returnValue = QueryOperations<DepartmentModel, Department, IQueryable<DepartmentModel>, IQueryable<Department>>.Query
+            IQueryable<DepartmentModel> returnValue = QueryOperationUtils<DepartmentModel, Department, IQueryable<DepartmentModel>, IQueryable<Department>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -763,7 +762,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, double>(bodyParameter, "$it");
-            double returnValue = QueryOperations<DepartmentModel, Department, double, double>.Query
+            double returnValue = QueryOperationUtils<DepartmentModel, Department, double, double>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -796,7 +795,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, double>(bodyParameter, parameterName);
-            double returnValue = QueryOperations<DepartmentModel, Department, double, double>.Query
+            double returnValue = QueryOperationUtils<DepartmentModel, Department, double, double>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -830,7 +829,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, int>(bodyParameter, parameterName);
-            int returnValue = QueryOperations<DepartmentModel, Department, int, int>.Query
+            int returnValue = QueryOperationUtils<DepartmentModel, Department, int, int>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -858,7 +857,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, int>(bodyParameter, parameterName);
-            int returnValue = QueryOperations<DepartmentModel, Department, int, int>.Query
+            int returnValue = QueryOperationUtils<DepartmentModel, Department, int, int>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -889,7 +888,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, List<DepartmentModel>>(bodyParameter, parameterName);
-            List<DepartmentModel> returnValue = QueryOperations<DepartmentModel, Department, List<DepartmentModel>, List<Department>>.Query
+            List<DepartmentModel> returnValue = QueryOperationUtils<DepartmentModel, Department, List<DepartmentModel>, List<Department>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -927,7 +926,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             //assert
             Assert.Throws<InvalidOperationException>
             (
-                () => QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+                () => QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
                 (
                     queryOperations,
                     selectorExpressionParameter
@@ -958,7 +957,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -986,7 +985,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1020,7 +1019,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1054,7 +1053,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1082,7 +1081,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1117,7 +1116,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<CourseModel>, IQueryable<int>>(bodyParameter, parameterName);
-            IQueryable<int> returnValue = QueryOperations<CourseModel, Course, IQueryable<int>, IQueryable<int>>.Query
+            IQueryable<int> returnValue = QueryOperationUtils<CourseModel, Course, IQueryable<int>, IQueryable<int>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1155,7 +1154,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<CourseModel>, int>(bodyParameter, parameterName);
-            int returnValue = QueryOperations<CourseModel, Course, int, int>.Query
+            int returnValue = QueryOperationUtils<CourseModel, Course, int, int>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1191,7 +1190,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
             Assert.Throws<InvalidOperationException>
             (
-                () => QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+                () => QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
                 (
                     queryOperations,
                     selectorExpressionParameter
@@ -1228,7 +1227,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1259,7 +1258,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1296,7 +1295,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1333,7 +1332,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1364,7 +1363,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1394,7 +1393,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, int>(bodyParameter, parameterName);
-            int returnValue = QueryOperations<DepartmentModel, Department, int, int>.Query
+            int returnValue = QueryOperationUtils<DepartmentModel, Department, int, int>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1427,7 +1426,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, int>(bodyParameter, parameterName);
-            int returnValue = QueryOperations<DepartmentModel, Department, int, int>.Query
+            int returnValue = QueryOperationUtils<DepartmentModel, Department, int, int>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1457,7 +1456,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, int>(bodyParameter, parameterName);
-            int returnValue = QueryOperations<DepartmentModel, Department, int, int>.Query
+            int returnValue = QueryOperationUtils<DepartmentModel, Department, int, int>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1490,7 +1489,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, int>(bodyParameter, parameterName);
-            int returnValue = QueryOperations<DepartmentModel, Department, int, int>.Query
+            int returnValue = QueryOperationUtils<DepartmentModel, Department, int, int>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1521,7 +1520,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, IOrderedQueryable<DepartmentModel>>(bodyParameter, parameterName);
-            IOrderedQueryable<DepartmentModel> returnValue = QueryOperations<DepartmentModel, Department, IOrderedQueryable<DepartmentModel>, IOrderedQueryable<Department>>.Query
+            IOrderedQueryable<DepartmentModel> returnValue = QueryOperationUtils<DepartmentModel, Department, IOrderedQueryable<DepartmentModel>, IOrderedQueryable<Department>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1552,7 +1551,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, IOrderedQueryable<DepartmentModel>>(bodyParameter, parameterName);
-            IOrderedQueryable<DepartmentModel> returnValue = QueryOperations<DepartmentModel, Department, IOrderedQueryable<DepartmentModel>, IOrderedQueryable<Department>>.Query
+            IOrderedQueryable<DepartmentModel> returnValue = QueryOperationUtils<DepartmentModel, Department, IOrderedQueryable<DepartmentModel>, IOrderedQueryable<Department>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1589,7 +1588,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<CourseModel>, IOrderedQueryable<CourseModel>>(bodyParameter, parameterName);
-            IOrderedQueryable<CourseModel> returnValue = QueryOperations<CourseModel, Course, IOrderedQueryable<CourseModel>, IOrderedQueryable<Course>>.Query
+            IOrderedQueryable<CourseModel> returnValue = QueryOperationUtils<CourseModel, Course, IOrderedQueryable<CourseModel>, IOrderedQueryable<Course>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1627,7 +1626,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<CourseModel>, IOrderedQueryable<CourseModel>>(bodyParameter, parameterName);
-            IOrderedQueryable<CourseModel> returnValue = QueryOperations<CourseModel, Course, IOrderedQueryable<CourseModel>, IOrderedQueryable<Course>>.Query
+            IOrderedQueryable<CourseModel> returnValue = QueryOperationUtils<CourseModel, Course, IOrderedQueryable<CourseModel>, IOrderedQueryable<Course>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter,
@@ -1672,7 +1671,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<CourseModel>, IOrderedQueryable<CourseModel>>(bodyParameter, parameterName);
-            IOrderedQueryable<CourseModel> returnValue = QueryOperations<CourseModel, Course, IOrderedQueryable<CourseModel>, IOrderedQueryable<Course>>.Query
+            IOrderedQueryable<CourseModel> returnValue = QueryOperationUtils<CourseModel, Course, IOrderedQueryable<CourseModel>, IOrderedQueryable<Course>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1722,7 +1721,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<CourseModel>, IQueryable<CourseAssignmentModel>>(bodyParameter, parameterName);
-            IQueryable<CourseAssignmentModel> returnValue = QueryOperations<CourseModel, Course, IQueryable<CourseAssignmentModel>, IQueryable<CourseAssignment>>.Query
+            IQueryable<CourseAssignmentModel> returnValue = QueryOperationUtils<CourseModel, Course, IQueryable<CourseAssignmentModel>, IQueryable<CourseAssignment>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1766,7 +1765,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, IQueryable<dynamic>>(bodyParameter, parameterName);
-            IQueryable<dynamic> returnValue = QueryOperations<DepartmentModel, Department, IQueryable<dynamic>, IQueryable<dynamic>>.Query
+            IQueryable<dynamic> returnValue = QueryOperationUtils<DepartmentModel, Department, IQueryable<dynamic>, IQueryable<dynamic>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1796,7 +1795,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<CourseModel>, IQueryable<CourseAssignmentModel>>(bodyParameter, parameterName);
-            IQueryable<CourseAssignmentModel> returnValue = QueryOperations<CourseModel, Course, IQueryable<CourseAssignmentModel>, IQueryable<CourseAssignment>>.Query
+            IQueryable<CourseAssignmentModel> returnValue = QueryOperationUtils<CourseModel, Course, IQueryable<CourseAssignmentModel>, IQueryable<CourseAssignment>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1832,7 +1831,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
             Assert.Throws<InvalidOperationException>
             (
-                () => QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+                () => QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
                 (
                     queryOperations,
                     selectorExpressionParameter
@@ -1866,7 +1865,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
-            DepartmentModel returnValue = QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+            DepartmentModel returnValue = QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1896,7 +1895,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, DepartmentModel>(bodyParameter, parameterName);
             Assert.Throws<InvalidOperationException>
             (
-                () => QueryOperations<DepartmentModel, Department, DepartmentModel, Department>.Query
+                () => QueryOperationUtils<DepartmentModel, Department, DepartmentModel, Department>.Query
                 (
                     queryOperations,
                     selectorExpressionParameter
@@ -1926,7 +1925,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, int>(bodyParameter, parameterName);
-            int returnValue = QueryOperations<DepartmentModel, Department, int, int>.Query
+            int returnValue = QueryOperationUtils<DepartmentModel, Department, int, int>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1959,7 +1958,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, int>(bodyParameter, parameterName);
-            int returnValue = QueryOperations<DepartmentModel, Department, int, int>.Query
+            int returnValue = QueryOperationUtils<DepartmentModel, Department, int, int>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -1987,7 +1986,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, List<DepartmentModel>>(bodyParameter, parameterName);
-            List<DepartmentModel> returnValue = QueryOperations<DepartmentModel, Department, List<DepartmentModel>, List<Department>>.Query
+            List<DepartmentModel> returnValue = QueryOperationUtils<DepartmentModel, Department, List<DepartmentModel>, List<Department>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -2027,7 +2026,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, IQueryable<DepartmentModel>>(bodyParameter, parameterName);
-            IQueryable<DepartmentModel> returnValue = QueryOperations<DepartmentModel, Department, IQueryable<DepartmentModel>, IQueryable<Department>>.Query
+            IQueryable<DepartmentModel> returnValue = QueryOperationUtils<DepartmentModel, Department, IQueryable<DepartmentModel>, IQueryable<Department>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -2061,7 +2060,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
 
             //act
             IExpressionParameter selectorExpressionParameter = GetSelectorParameter<IQueryable<DepartmentModel>, IQueryable<DepartmentModel>>(bodyParameter, parameterName);
-            IQueryable<DepartmentModel> returnValue = QueryOperations<DepartmentModel, Department, IQueryable<DepartmentModel>, IQueryable<Department>>.Query
+            IQueryable<DepartmentModel> returnValue = QueryOperationUtils<DepartmentModel, Department, IQueryable<DepartmentModel>, IQueryable<Department>>.Query
             (
                 queryOperations,
                 selectorExpressionParameter
@@ -2142,7 +2141,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     ),
                     ServiceLifetime.Transient
                 )
-                .AddAppCommonUtilsServices()
+                .AddAppUtilsServices()
                 .AddBslUtilsServices()
                 .AddTransient<ISchoolStore, SchoolStore>()
                 .AddTransient<IContextRepository, SchoolRepository>()

@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace LogicBuilder.App.Bsl.Utils
 {
-    public static class ProjectionOperations<TModel, TData> where TModel : BaseModel where TData : BaseData
+    public static class ProjectionOperationUtils<TModel, TData> where TModel : BaseModel where TData : BaseData
     {
         [AlsoKnownAs("GetSingle")]
         [FunctionGroup(FunctionGroup.Standard)]

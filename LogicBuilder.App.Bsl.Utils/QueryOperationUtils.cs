@@ -6,7 +6,7 @@ using LogicBuilder.Forms.Parameters.Expressions;
 namespace LogicBuilder.App.Bsl.Utils
 {
 #pragma warning disable S2436//Generic arguments needed for mapping
-    public static class QueryOperations<TModel, TData, TModelReturn, TDataReturn> where TModel : LogicBuilder.Domain.BaseModel where TData : LogicBuilder.Data.BaseData
+    public static class QueryOperationUtils<TModel, TData, TModelReturn, TDataReturn> where TModel : LogicBuilder.Domain.BaseModel where TData : LogicBuilder.Data.BaseData
 #pragma warning restore S2436
     {
         [AlsoKnownAs("Query")]

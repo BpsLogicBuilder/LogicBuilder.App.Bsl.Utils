@@ -12,7 +12,8 @@ namespace Microsoft.Extensions.DependencyInjection
             return services
                 .AddTransient<IDeleteOperations, DeleteOperations>()
                 .AddTransient<IProjectionOperations, ProjectionOperations>()
-                .AddTransient<IQueryOperations, QueryOperations>();
+                .AddTransient<IQueryOperations, QueryOperations>()
+                .AddTransient<IRequestHelper, RequestHelper>();
         }
     }
 }
