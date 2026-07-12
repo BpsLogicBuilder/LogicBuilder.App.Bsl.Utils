@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 
 namespace LogicBuilder.App.Bsl.Utils
 {
-    public static class PersistenceOperations<TModel, TData> where TModel : BaseModel where TData : BaseData
+    public static class PersistenceOperationsUtils<TModel, TData> where TModel : BaseModel where TData : BaseData
     {
         [AlsoKnownAs("Persistence_AddChange")]
         [FunctionGroup(FunctionGroup.Standard)]

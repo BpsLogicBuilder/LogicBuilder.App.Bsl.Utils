@@ -6,8 +6,6 @@ using LogicBuilder.App.Bsl.Utils.Tests.Data;
 using LogicBuilder.App.Bsl.Utils.Tests.Data.Stores;
 using LogicBuilder.App.Bsl.Utils.Tests.Models;
 using LogicBuilder.App.Bsl.Utils.Tests.Models.Repositories;
-using LogicBuilder.App.Common.Utils;
-using LogicBuilder.App.Common.Utils.Interfaces;
 using LogicBuilder.EntityFrameworkCore.Mapping;
 using LogicBuilder.EntityFrameworkCore.Repositories;
 using LogicBuilder.Forms.Parameters.Expressions;
@@ -53,7 +51,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             var before = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == fullName)).SingleOrDefault();
 
             //act
-            DeleteOperations<StudentModel, Student>.Delete(deleteOperations, filter);
+            DeleteOperationUtils<StudentModel, Student>.Delete(deleteOperations, filter);
             var after = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == fullName)).SingleOrDefault();
 
             //assert
@@ -97,7 +95,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     ),
                     ServiceLifetime.Transient
                 )
-                .AddAppCommonUtilsServices()
+                .AddAppUtilsServices()
                 .AddBslUtilsServices()
                 .AddTransient<ISchoolStore, SchoolStore>()
                 .AddTransient<IContextRepository, SchoolRepository>()

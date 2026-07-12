@@ -6,8 +6,7 @@ using LogicBuilder.App.Bsl.Utils.Tests.Data;
 using LogicBuilder.App.Bsl.Utils.Tests.Data.Stores;
 using LogicBuilder.App.Bsl.Utils.Tests.Models;
 using LogicBuilder.App.Bsl.Utils.Tests.Models.Repositories;
-using LogicBuilder.App.Common.Utils;
-using LogicBuilder.App.Common.Utils.Interfaces;
+using LogicBuilder.App.Utils.Interfaces;
 using LogicBuilder.EntityFrameworkCore.Mapping;
 using LogicBuilder.EntityFrameworkCore.Repositories;
 using LogicBuilder.Expressions.Utils.ExpansionDescriptors;
@@ -1186,7 +1185,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     ),
                     ServiceLifetime.Transient
                 )
-                .AddAppCommonUtilsServices()
+                .AddAppUtilsServices()
                 .AddTransient<IRequestHelper, RequestHelper>()
                 .AddTransient<ISchoolStore, SchoolStore>()
                 .AddTransient<IContextRepository, SchoolRepository>()

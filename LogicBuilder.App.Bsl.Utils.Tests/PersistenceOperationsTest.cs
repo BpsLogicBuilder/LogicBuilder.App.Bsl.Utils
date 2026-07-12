@@ -5,8 +5,6 @@ using LogicBuilder.App.Bsl.Utils.Tests.Data;
 using LogicBuilder.App.Bsl.Utils.Tests.Data.Stores;
 using LogicBuilder.App.Bsl.Utils.Tests.Models;
 using LogicBuilder.App.Bsl.Utils.Tests.Models.Repositories;
-using LogicBuilder.App.Common.Utils;
-using LogicBuilder.App.Common.Utils.Interfaces;
 using LogicBuilder.EntityFrameworkCore.Mapping;
 using LogicBuilder.EntityFrameworkCore.Repositories;
 using LogicBuilder.Expressions.Utils.Expansions;
@@ -58,7 +56,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             };
 
             //act
-            PersistenceOperations<StudentModel, Student>.AddChange(schoolRepository, student);
+            PersistenceOperationsUtils<StudentModel, Student>.AddChange(schoolRepository, student);
             await schoolRepository.SaveChangesAsync();
             var result = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == "Roger Milla", null, new SelectExpandDefinition([], [new SelectExpandItem("Enrollments")]))).Single();
 
@@ -87,7 +85,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             };
 
             //act
-            PersistenceOperations<StudentModel, Student>.AddChanges(schoolRepository, [student]);
+            PersistenceOperationsUtils<StudentModel, Student>.AddChanges(schoolRepository, [student]);
             await schoolRepository.SaveChangesAsync();
             var result = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == "Roger Milla", null, new SelectExpandDefinition([], [new SelectExpandItem("Enrollments")]))).Single();
 
@@ -116,7 +114,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             };
 
             //act
-            PersistenceOperations<StudentModel, Student>.AddGraphChange(schoolRepository, student);
+            PersistenceOperationsUtils<StudentModel, Student>.AddGraphChange(schoolRepository, student);
             await schoolRepository.SaveChangesAsync();
             var result = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == "Roger Milla", null, new SelectExpandDefinition([], [new SelectExpandItem("Enrollments")]))).Single();
 
@@ -145,7 +143,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             };
 
             //act
-            PersistenceOperations<StudentModel, Student>.AddGraphChanges(schoolRepository, [student]);
+            PersistenceOperationsUtils<StudentModel, Student>.AddGraphChanges(schoolRepository, [student]);
             await schoolRepository.SaveChangesAsync();
             var result = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == "Roger Milla", null, new SelectExpandDefinition([], [new SelectExpandItem("Enrollments")]))).Single();
 
@@ -163,7 +161,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             var before = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == fullName)).SingleOrDefault();
 
             //act
-            PersistenceOperations<StudentModel, Student>.Delete(schoolRepository, s => s.FullName == fullName);
+            PersistenceOperationsUtils<StudentModel, Student>.Delete(schoolRepository, s => s.FullName == fullName);
             var after = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == fullName)).SingleOrDefault();
 
             //assert
@@ -191,7 +189,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             };
 
             //act
-            PersistenceOperations<StudentModel, Student>.Save(schoolRepository, student);
+            PersistenceOperationsUtils<StudentModel, Student>.Save(schoolRepository, student);
             var result = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == "Roger Milla", null, new SelectExpandDefinition([], [new SelectExpandItem("Enrollments")]))).Single();
 
             //assert
@@ -219,7 +217,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             };
 
             //act
-            PersistenceOperations<StudentModel, Student>.Save(schoolRepository, [student]);
+            PersistenceOperationsUtils<StudentModel, Student>.Save(schoolRepository, [student]);
             var result = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == "Roger Milla", null, new SelectExpandDefinition([], [new SelectExpandItem("Enrollments")]))).Single();
 
             //assert
@@ -247,7 +245,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             };
 
             //act
-            PersistenceOperations<StudentModel, Student>.SaveGraph(schoolRepository, student);
+            PersistenceOperationsUtils<StudentModel, Student>.SaveGraph(schoolRepository, student);
             var result = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == "Roger Milla", null, new SelectExpandDefinition([], [new SelectExpandItem("Enrollments")]))).Single();
 
             //assert
@@ -275,7 +273,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
             };
 
             //act
-            PersistenceOperations<StudentModel, Student>.SaveGraphs(schoolRepository, [student]);
+            PersistenceOperationsUtils<StudentModel, Student>.SaveGraphs(schoolRepository, [student]);
             var result = (await schoolRepository.GetAsync<StudentModel, Student>(s => s.FullName == "Roger Milla", null, new SelectExpandDefinition([], [new SelectExpandItem("Enrollments")]))).Single();
 
             //assert
@@ -313,7 +311,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                     ),
                     ServiceLifetime.Transient
                 )
-                .AddAppCommonUtilsServices()
+                .AddAppUtilsServices()
                 .AddBslUtilsServices()
                 .AddTransient<ISchoolStore, SchoolStore>()
                 .AddTransient<IContextRepository, SchoolRepository>()

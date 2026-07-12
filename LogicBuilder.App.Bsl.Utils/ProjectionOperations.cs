@@ -1,5 +1,5 @@
 ﻿using LogicBuilder.App.Bsl.Utils.Interfaces;
-using LogicBuilder.App.Common.Utils.Interfaces;
+using LogicBuilder.App.Utils.Interfaces;
 using LogicBuilder.Data;
 using LogicBuilder.Domain;
 using LogicBuilder.EntityFrameworkCore.Repositories;

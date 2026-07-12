@@ -6,7 +6,7 @@ using LogicBuilder.Forms.Parameters.Expressions;
 
 namespace LogicBuilder.App.Bsl.Utils
 {
-    public static class DeleteOperations<TModel, TData> where TModel : BaseModel where TData : BaseData
+    public static class DeleteOperationUtils<TModel, TData> where TModel : BaseModel where TData : BaseData
     {
         [AlsoKnownAs("Delete")]
         [FunctionGroup(FunctionGroup.Standard)]
