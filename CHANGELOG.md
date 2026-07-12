@@ -1,3 +1,4 @@
+* 2026-07-12 - AB#189: AB#189: Rename PersistenceOperations to PersistenceOperationsUtils.
 * 2026-07-11 - AB#189: Referencing consolidated Utils library.
 * 2026-07-06 - AB#173: Fixing a typo in the service registration method name.
 * 2026-07-03 - AB#173: Updating the README.md to cover the new classes.
