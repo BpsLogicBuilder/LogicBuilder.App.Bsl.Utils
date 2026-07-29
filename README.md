@@ -4,6 +4,7 @@
 [![CodeQL](https://github.com/BpsLogicBuilder/LogicBuilder.App.Bsl.Utils/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/BpsLogicBuilder/LogicBuilder.App.Bsl.Utils/actions/workflows/github-code-scanning/codeql)
 [![codecov](https://codecov.io/gh/BpsLogicBuilder/LogicBuilder.App.Bsl.Utils/graph/badge.svg?token=QSA4HJTQXI)](https://codecov.io/gh/BpsLogicBuilder/LogicBuilder.App.Bsl.Utils)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=BpsLogicBuilder_LogicBuilder.App.Bsl.Utils&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=BpsLogicBuilder_LogicBuilder.App.Bsl.Utils)
+[![NuGet](https://img.shields.io/nuget/v/LogicBuilder.App.Bsl.Utils.svg)](https://www.nuget.org/packages/LogicBuilder.App.Bsl.Utils)
 
 A .NET library that provides utilities for handling query requests with dynamic filters, expansions, and projections for Entity Framework Core applications. This library enables type-safe, expression-based querying with support for both generic and non-generic scenarios, making it ideal for building flexible data access layers in enterprise applications.
 
