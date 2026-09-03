@@ -21,7 +21,8 @@ using System.Threading.Tasks;
 
 namespace LogicBuilder.App.Bsl.Utils.Tests
 {
-    public class ProjectionOperationsTest : IClassFixture<DatabaseFixture>
+    [Collection("DatabaseCollection")]
+    public class ProjectionOperationsTest
     {
         static ProjectionOperationsTest()
         {
@@ -37,7 +38,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         #region Fields
         private readonly DatabaseFixture databaseFixture;
         private static MapperConfiguration MapperConfiguration;
-        private static IServiceProvider? serviceProvider;
+        private IServiceProvider? serviceProvider;
         #endregion Fields
 
         [Fact]
@@ -375,12 +376,12 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [MemberNotNull(nameof(serviceProvider))]
         private void Initialize()
         {
-            serviceProvider ??= new ServiceCollection()
+            serviceProvider = new ServiceCollection()
                 .AddDbContext<SchoolContext>
                 (
                     options => options.UseSqlServer
                     (
-                        databaseFixture.GetConnectionString(GetType().Name),
+                        databaseFixture.GetConnectionString($"{GetType().Name}_{Guid.NewGuid():N}"),
                         options => options.EnableRetryOnFailure()
                     ),
                     ServiceLifetime.Transient
