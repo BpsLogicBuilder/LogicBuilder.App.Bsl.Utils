@@ -10,7 +10,9 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddBslUtilsServices(this IServiceCollection services)
         {
             return services
+                .AddTransient<ICustomActions, CustomActions>()
                 .AddTransient<IDeleteOperations, DeleteOperations>()
+                .AddScoped<IFlowDataCache, FlowDataCache>()
                 .AddTransient<IProjectionOperations, ProjectionOperations>()
                 .AddTransient<IQueryOperations, QueryOperations>()
                 .AddTransient<IRequestHelper, RequestHelper>();

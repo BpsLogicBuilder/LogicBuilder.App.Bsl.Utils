@@ -35,9 +35,9 @@
 
   <ItemGroup>
     <PackageReference Include="LogicBuilder.App.Bsl.Business" Version="1.0.3" />
-    <PackageReference Include="LogicBuilder.App.Utils" Version="1.0.6" />
+    <PackageReference Include="LogicBuilder.App.Utils" Version="1.0.7" />
     <PackageReference Include="LogicBuilder.EntityFrameworkCore" Version="8.0.3" />
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.301" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.400" PrivateAssets="All" />
 		<PackageReference Include="MinVer" Version="7.0.0">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
