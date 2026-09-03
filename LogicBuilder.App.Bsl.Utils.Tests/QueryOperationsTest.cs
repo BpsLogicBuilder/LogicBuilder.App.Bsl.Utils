@@ -25,7 +25,8 @@ using System.Threading.Tasks;
 
 namespace LogicBuilder.App.Bsl.Utils.Tests
 {
-    public class QueryOperationsTest : IClassFixture<DatabaseFixture>
+    [Collection("DatabaseCollection")]
+    public class QueryOperationsTest
     {
         static QueryOperationsTest()
         {
@@ -2080,7 +2081,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         private const string parameterName = "$it";
         private readonly DatabaseFixture databaseFixture;
         private static MapperConfiguration MapperConfiguration;
-        private static IServiceProvider? serviceProvider;
+        private IServiceProvider? serviceProvider;
         #endregion Fields
 
         #region Helpers
@@ -2096,7 +2097,7 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
                 );
         }
 
-        private static Expression<Func<IQueryable<TModel>, TModelReturn>> GetSelectorLambdaExpression<TModel, TModelReturn>(IExpressionParameter selectorExpressionParameter)
+        private Expression<Func<IQueryable<TModel>, TModelReturn>> GetSelectorLambdaExpression<TModel, TModelReturn>(IExpressionParameter selectorExpressionParameter)
         {
             IMappingOperations mappingOperations = serviceProvider!.GetRequiredService<IMappingOperations>();
             IExpressionPart selectorExpression = mappingOperations.MapToOperator(selectorExpressionParameter);
@@ -2131,12 +2132,12 @@ namespace LogicBuilder.App.Bsl.Utils.Tests
         [MemberNotNull(nameof(serviceProvider))]
         private void Initialize()
         {
-            serviceProvider ??= new ServiceCollection()
+            serviceProvider = new ServiceCollection()
                 .AddDbContext<SchoolContext>
                 (
                     options => options.UseSqlServer
                     (
-                        databaseFixture.GetConnectionString(GetType().Name),
+                        databaseFixture.GetConnectionString($"{GetType().Name}_{Guid.NewGuid():N}"),
                         options => options.EnableRetryOnFailure()
                     ),
                     ServiceLifetime.Transient
