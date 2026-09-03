@@ -1,3 +1,4 @@
+* 2026-09-03 - AB#223: Fix dotnet-sonarscanner report paths.
 * 2026-09-03 - AB#223: Moving classes used by Logic Builder to shared library.
 * 2026-07-29 - AB#205: Making NuGet one of the release feeds.
 * 2026-07-12 - AB#189: Rename PersistenceOperations to PersistenceOperationsUtils.
